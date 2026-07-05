@@ -1,0 +1,587 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.count {
+  display: grid;
+  grid-template-rows: 7% 1fr;
+  grid-template-areas: "header" "main";
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+/* Header */
+.count header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-area: header;
+  max-width: 100%;
+  background-color: #3F3F3F;
+}
+.count header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10%;
+  min-width: 100%;
+  font-size: 1.3rem;
+}
+.count header nav a {
+  padding: 1rem 3rem 0.5rem 3rem;
+  color: white;
+  text-decoration: none;
+  border-right: 0.1rem solid gray;
+  border-left: 0.1rem solid gray;
+}
+.count header nav a:hover {
+  border-bottom: 0.3rem solid rgb(0, 173, 185);
+}
+.count header nav button {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: bolder;
+  font-size: 1.05rem;
+  border: none;
+  background-color: rgba(255, 0, 0, 0.51);
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.count header nav button:active {
+  color: white;
+  background-color: rgba(0, 128, 0, 0.56);
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0 0 0 0 black;
+          box-shadow: 0 0 0 0 black;
+}
+
+/* Header */
+/* Main */
+.count .main {
+  grid-area: main;
+  padding: 1rem;
+  background-color: rgba(175, 175, 175, 0.353);
+  display: none;
+}
+
+/* Main - book*/
+.count .main-books {
+  display: block;
+}
+.count .main-books .border-book {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.count .main-books .border-book .card-book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.2rem;
+  padding: 1rem;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+.count .main-books .border-book .card-book .infoBook {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 0.2rem;
+}
+.count .main-books .border-book .card-book:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  color: white;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.497);
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.495);
+          box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.495);
+}
+.count .main-books .border-book .card-book .deleteBook {
+  width: 95%;
+}
+.count .main-books .border-book .card-book .deleteBook .deleteBookBtn {
+  width: 100%;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgba(255, 0, 0, 0.593);
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.count .main-books .border-book .card-book .deleteBook .deleteBookBtn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.count .main-books .border-book .card-book .bookPhoto img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Main - book*/
+.count .main-books .modalAdd,
+.count .main-visitor .modalAdd,
+.count .main-card .modalAdd {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 30%;
+  left: 35%;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: rgba(63, 63, 63, 0.3882352941);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+}
+.count .main-books .modalAdd .closeModal,
+.count .main-visitor .modalAdd .closeModal,
+.count .main-card .modalAdd .closeModal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  width: 100%;
+}
+.count .main-books .modalAdd .closeModal .close,
+.count .main-visitor .modalAdd .closeModal .close,
+.count .main-card .modalAdd .closeModal .close {
+  padding: 0.1rem 0.5rem;
+  margin-left: auto;
+  border-radius: 0.3rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.count .main-books .modalAdd .closeModal .close:active,
+.count .main-visitor .modalAdd .closeModal .close:active,
+.count .main-card .modalAdd .closeModal .close:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.count .main-books .modalAdd form,
+.count .main-visitor .modalAdd form,
+.count .main-card .modalAdd form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 1rem;
+}
+.count .main-books .modalAdd form .infoInput,
+.count .main-visitor .modalAdd form .infoInput,
+.count .main-card .modalAdd form .infoInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 100%;
+}
+.count .main-books .modalAdd form .infoInput label,
+.count .main-visitor .modalAdd form .infoInput label,
+.count .main-card .modalAdd form .infoInput label {
+  width: 30%;
+}
+.count .main-books .modalAdd form .infoInput input, .count .main-books .modalAdd form .infoInput textarea,
+.count .main-visitor .modalAdd form .infoInput input,
+.count .main-visitor .modalAdd form .infoInput textarea,
+.count .main-card .modalAdd form .infoInput input,
+.count .main-card .modalAdd form .infoInput textarea {
+  padding: 0.3rem;
+  width: 70%;
+  border-radius: 0.3rem;
+}
+.count .main-books .modalAdd form .addBtn,
+.count .main-books .modalAdd form .saveBtn,
+.count .main-visitor .modalAdd form .addBtn,
+.count .main-visitor .modalAdd form .saveBtn,
+.count .main-card .modalAdd form .addBtn,
+.count .main-card .modalAdd form .saveBtn {
+  width: 100%;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.3rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.count .main-books .modalAdd form .addBtn:active,
+.count .main-books .modalAdd form .saveBtn:active,
+.count .main-visitor .modalAdd form .addBtn:active,
+.count .main-visitor .modalAdd form .saveBtn:active,
+.count .main-card .modalAdd form .addBtn:active,
+.count .main-card .modalAdd form .saveBtn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+
+.count .main-card .modalAdd {
+  left: 35%;
+  top: 35%;
+}
+.count .main-card .modalAdd form {
+  max-width: 25rem;
+}
+.count .main-card .modalAdd form .infoInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  min-width: 100%;
+}
+.count .main-card .modalAdd form .infoInput select {
+  padding: 0.3rem;
+  width: 70%;
+  border-radius: 0.3rem;
+}
+.count .main-card .modalAdd form .infoInput label {
+  width: 30%;
+  border-radius: 0.3rem;
+}
+
+/* Main all */
+.createCount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+.createCount h2 {
+  color: rgb(0, 173, 185);
+}
+.createCount .createBtn {
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.536);
+  cursor: pointer;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.createCount .createBtn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+
+.sort-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.sort-search .sortCount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  min-width: 50%;
+}
+.sort-search .sortCount .sortSelect {
+  min-width: 50%;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.sort-search .sortCount .sortBtn {
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.sort-search .sortCount .sortBtn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.sort-search .searchCount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  min-width: 50%;
+}
+.sort-search .searchCount input {
+  min-width: 50%;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.sort-search .searchCount .searchBtn {
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.sort-search .searchCount .searchBtn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+
+.main .tableInfo {
+  margin-top: 1rem;
+  min-width: 100%;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+.main .tableInfo thead tr th {
+  padding: 0.5rem;
+  text-align: center;
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+.main .tableInfo thead tr th:last-child {
+  width: 50px;
+}
+.main .tableInfo thead tr th:nth-last-child(2) {
+  width: 50px;
+}
+.main .tableInfo thead tr th:first-child {
+  width: 50px;
+}
+.main .tableInfo .tableBody tr td {
+  padding: 0.5rem;
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+.main .tableInfo .tableBody tr td:last-child {
+  width: 50px;
+}
+.main .tableInfo .tableBody tr td:nth-last-child(2) {
+  width: 50px;
+}
+.main .tableInfo .tableBody tr td .editBtn,
+.main .tableInfo .tableBody tr td .deleteVisit {
+  background: none;
+  border: none;
+}
+.main .tableInfo .tableBody tr td .editBtn img,
+.main .tableInfo .tableBody tr td .deleteVisit img {
+  width: 16px;
+  cursor: pointer;
+}
+
+.main .tableInfoCard {
+  margin-top: 1rem;
+  min-width: 100%;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+.main .tableInfoCard thead tr th {
+  padding: 0.5rem;
+  text-align: center;
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+.main .tableInfoCard thead tr th:nth-last-child(2) {
+  width: 120px;
+}
+.main .tableInfoCard thead tr th:first-child {
+  width: 50px;
+}
+.main .tableInfoCard thead tr th:last-child {
+  width: 120px;
+}
+.main .tableInfoCard .tableBodyCard tr td {
+  padding: 0.5rem;
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+.main .tableInfoCard .tableBodyCard tr td .returnBtn {
+  background: none;
+  border: none;
+}
+.main .tableInfoCard .tableBodyCard tr td .returnBtn img {
+  width: 24px;
+  cursor: pointer;
+}
+
+/* Main all */
+.mainStatist .newCards {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+.mainStatist .charts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.mainStatist .charts .contGraph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 0.5rem;
+  width: 75%;
+  height: 100%;
+}
+
+/* Main */

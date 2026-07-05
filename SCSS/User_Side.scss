@@ -1,0 +1,615 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: rgba(175, 175, 175, 0.353);
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 17% 1fr ; 
+    grid-template-rows: 8% 1fr 16%;
+    grid-template-areas: 
+    "header header"
+    "filter main"
+    "footer footer";
+    gap: 1%;
+    background-image: url(/IMG/2020120315121624.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    header {
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        grid-area: header;
+        top: 0;
+        z-index: 100;
+        padding: 0.5rem;
+        max-width: 100%;
+        background-color: rgba(0, 0, 0, 0.538);
+        color: rgb(255, 255, 255);
+
+        nav {
+            min-width: 100%;
+
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 35%;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        color: rgba(255, 255, 255, 0.77);
+                        text-decoration: none;
+                        font-weight: bolder;
+                        font-size: 2rem;
+                        list-style: none;
+
+                        &:hover {
+                            color: rgba(255, 255, 255, 0.592);
+                            cursor: pointer;
+                        }
+                    }
+
+                    img {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .filterDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5%;
+        grid-area: filter;
+        padding: 0.5rem;
+        margin-left: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+        background-color: rgba(186, 186, 186, 0.404);
+        backdrop-filter: blur(5px);
+
+        .search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1%;
+
+            input {
+                padding: 0.2rem;
+                border-radius: 0.2rem;
+                border: 1px solid black;
+                background: rgba(255, 255, 255, 0.555);
+                backdrop-filter: blur(10px);
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid black;
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 0.2rem;
+                border-radius: 0.2rem;
+                border: none;
+                box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                cursor: pointer;
+                transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                &:active {
+                    transform: scale(0.95);
+                    box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                }
+            }
+        }
+
+        .filterYear {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            border: 1px solid black;
+
+            .years {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+                align-items: center;
+                gap: 0.5rem;
+                min-width: 100%;
+                max-height: 200px;
+                overflow-y: auto;
+
+                .checkBoxYear {
+                    
+                    input[type="checkbox"] {
+                        accent-color: rgba(0, 0, 0, 0.536);
+                    }
+                }
+            }
+        }
+
+        .filterAuthor {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            border: 1px solid black;
+
+            .authors {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+                align-items: center;
+                gap: 0.5rem;
+                min-width: 100%;
+                max-height: 200px;
+                overflow-y: auto;
+
+                button {
+                    width: 100%;
+                    padding: 0.25rem;
+                    border: 1px solid black;
+                    border-radius: 0.25rem;
+                    background: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.574);
+                    }
+                }
+            }
+        }
+    }
+
+    .booksDiv {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: max-content;
+        grid-area: main;
+        gap: 1%;
+        padding: 1rem;
+        margin-right: 1rem;
+        height: 100vh;
+        overflow-y: auto;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+        background-color: rgba(186, 186, 186, 0.404);
+        backdrop-filter: blur(5px);
+
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: rgba(0, 0, 0, 0.467);
+            border-radius: 1rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgb(150, 150, 150);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(209, 209, 209, 0.634);
+}
+
+        .card-book {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.2rem;
+            padding: 1rem;
+            transition: all 0.8s ease;
+
+            .infoBook {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.2rem;
+                text-align: center;
+                overflow-wrap: break-word; 
+                word-break: break-all; 
+
+                h3 {
+                    max-width: 75%;
+                    margin: 0;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.05);
+                color: white;
+                border-radius: 0.5rem;
+                background-color: rgba(0, 0, 0, 0.497);
+                backdrop-filter: blur(10px);
+                box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.495);
+                cursor: pointer;
+            }
+
+            img {
+                border-radius: 0.25rem;
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: footer;
+        gap: 5%;        
+        padding: 1rem;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.54);
+
+        .libaAdmin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.2rem;
+            .admins {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2%;
+                padding: 1rem;
+                width: 100%;
+
+                li {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+
+.infoBooks {
+    display: none;
+    grid-template-areas: 
+    "header header"
+    "main main"
+    "footer footer";
+
+    .blink-favorite {
+        animation: blink-red 0.8s ease-in-out;
+    }
+
+    .infoBookDiv {
+        display: grid;
+        grid-template-columns: 20% 1fr;
+        grid-template-rows: 5% 1fr;
+        grid-template-areas: 
+        "header header"
+        "photo info";
+        grid-area: main;
+        gap: 2rem;
+        margin: 1rem;
+        padding: 1.5rem;
+
+        .divBack {
+            grid-area: header;
+            width: 100%;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 5%;
+                padding: 0.3rem;
+                font-size: 1.3rem;
+                color: white;
+                background-color: rgba(65, 65, 65, 0.61);
+                border-radius: 0.3rem;
+                border: none;
+                box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                cursor: pointer;
+                transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                &:active {
+                    transform: scale(0.95);
+                    background-color: rgba(225, 225, 225, 0.61);
+                    box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                }
+            }
+        }
+
+        .photoInfoBook {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            grid-area: photo;
+            gap: 0.5rem;
+
+            .info {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .clickFavor {
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    padding: 0.5rem;
+                    font-size: 1.3rem;
+                    color: white;
+                    background-color: rgba(0, 100, 0, 0.61);
+                    border-radius: 0.3rem;
+                    border: none;
+                    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                    cursor: pointer;
+                    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                    &:active {
+                        transform: scale(0.95);
+                        background-color: rgba(0, 184, 0, 0.61);
+                        box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                    }
+                }
+            }
+        }
+    }
+
+    .descript {
+        display: grid;
+        grid-area: info;
+        grid-template-rows: 5% 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        min-width: 100%;
+        border: 2px solid black;
+        border-radius: 0.2rem;
+        backdrop-filter: blur(5px);
+        font-size: 1.5rem;
+        overflow-wrap: break-word; 
+        word-break: break-all; 
+
+        .headInfo {
+            text-align: center;
+        }
+    }
+}
+
+.favorBook {
+    display: none;
+    
+    .favoriteBooks {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: max-content;
+        grid-area: main;
+        gap: 1%;
+        padding: 1rem;
+        margin-right: 1rem;
+        height: 100vh;
+        overflow-y: auto;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+        background-color: rgba(186, 186, 186, 0.404);
+        backdrop-filter: blur(5px);
+
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: rgba(0, 0, 0, 0.467);
+            border-radius: 1rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgb(150, 150, 150);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(209, 209, 209, 0.634);
+        }
+
+        .card-book {
+            .delBtn {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                width: 100%;
+
+                .del {
+                    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+                    border-radius: 0.2rem;
+                    border: 1px solid black;
+                    background-color: #ff4756b3;
+                    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                    cursor: pointer;
+                    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                    &:active {
+                        transform: scale(0.95);
+                        background-color: rgba(225, 225, 225, 0.61);
+                        box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                    }
+                }
+            }
+
+            .infoBook {
+                overflow-wrap: break-word; 
+                word-break: break-all; 
+            }
+        }
+    }
+}
+
+.personalAcc {
+    display: none;
+
+    .personalAccDiv {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        padding: 0.5rem;
+
+        .photoDiv {
+            display: grid;
+            grid-template-rows: 1fr 10%;
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+            min-height: 50vh;
+            padding: 0.5rem;
+            border: 2px solid black;
+            border-radius: 0.2rem;
+            backdrop-filter: blur(10px);
+
+            button {
+                width: 95%;
+                padding: 0.5rem;
+                font-weight: bolder;
+                background-color: #ff4756cf;
+                border-radius: 0.2rem;
+                border: none;
+                box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                cursor: pointer;
+                transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                &:active {
+                    transform: scale(0.95);
+                    box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                }
+            }
+        }
+        
+        .formEdInfo {
+            display: block;
+            min-width: 100%;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1.5rem;
+                max-height: 100vh;
+                min-width: 100%;
+                padding: 1rem;
+                border: 1px solid black;
+                border-radius: 0.2rem;
+                backdrop-filter: blur(10px);
+
+                .divInpt {
+                    display: grid;
+                    grid-template-columns: 20% 1fr;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+
+                    input {
+                        padding: 0.5rem;
+                        border: 1px solid black;
+                        border-radius: 0.3rem;
+                    }
+
+                    label {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .divEdite {
+                    width: 100%;
+
+                    button {
+                        width: 100%;
+                        padding: 0.5rem;
+                        font-weight: bolder;
+                        border-radius: 0.2rem;
+                        border: none;
+                        box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                        cursor: pointer;
+                        transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                        &:active {
+                            transform: scale(0.95);
+                            box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                        }
+                    }
+                }
+            }
+        }
+        
+        .editeInfo {
+            display: none;
+            justify-items: center;
+            align-items: center;
+            height: 50vh;
+            width: 100vh;
+            font-size: 1.5rem;
+            border: 2px solid black;
+            border-radius: 0.3rem;
+            backdrop-filter: blur(10px);
+
+            #btnReturnToForm {
+                width: 95%;
+                padding: 0.5rem;
+                font-weight: bolder;
+                background-color: #2da03acf;
+                border-radius: 0.2rem;
+                border: none;
+                box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                cursor: pointer;
+                transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                &:active {
+                    transform: scale(0.95);
+                    box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes blink-red {
+    0% { 
+        color: inherit; 
+    }
+    50% { 
+        color: #ff4757;
+        transform: scale(1.1);
+    }
+    100% {
+        color: inherit;
+        transform: scale(1);
+    }
+}
+

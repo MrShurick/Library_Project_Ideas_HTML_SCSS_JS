@@ -1,0 +1,699 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: rgba(175, 175, 175, 0.353);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 17% 1fr;
+  grid-template-rows: 8% 1fr 16%;
+  grid-template-areas: "header header" "filter main" "footer footer";
+  gap: 1%;
+  background-image: url(/IMG/2020120315121624.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main header {
+  position: sticky;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  grid-area: header;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.538);
+  color: rgb(255, 255, 255);
+}
+.main header nav {
+  min-width: 100%;
+}
+.main header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 35%;
+}
+.main header nav ul li {
+  list-style: none;
+}
+.main header nav ul li a {
+  color: rgba(255, 255, 255, 0.77);
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 2rem;
+  list-style: none;
+}
+.main header nav ul li a:hover {
+  color: rgba(255, 255, 255, 0.592);
+  cursor: pointer;
+}
+.main header nav ul li img {
+  cursor: pointer;
+}
+.main .filterDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5%;
+  grid-area: filter;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  background-color: rgba(186, 186, 186, 0.404);
+  backdrop-filter: blur(5px);
+}
+.main .filterDiv .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1%;
+}
+.main .filterDiv .search input {
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.555);
+  backdrop-filter: blur(10px);
+}
+.main .filterDiv .search input:focus {
+  outline: none;
+  border: 1px solid black;
+}
+.main .filterDiv .search button {
+  width: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.main .filterDiv .search button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.main .filterDiv .filterYear {
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  min-width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.main .filterDiv .filterYear .years {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  min-width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.main .filterDiv .filterYear .years .checkBoxYear input[type=checkbox] {
+  accent-color: rgba(0, 0, 0, 0.536);
+}
+.main .filterDiv .filterAuthor {
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  min-width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.main .filterDiv .filterAuthor .authors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  min-width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.main .filterDiv .filterAuthor .authors button {
+  width: 100%;
+  padding: 0.25rem;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.main .filterDiv .filterAuthor .authors button:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.574);
+}
+.main .booksDiv {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  grid-area: main;
+  gap: 1%;
+  padding: 1rem;
+  margin-right: 1rem;
+  height: 100vh;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  background-color: rgba(186, 186, 186, 0.404);
+  backdrop-filter: blur(5px);
+}
+.main .booksDiv::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.main .booksDiv::-webkit-scrollbar-track {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(0, 0, 0, 0.467);
+  border-radius: 1rem;
+}
+.main .booksDiv::-webkit-scrollbar-thumb {
+  background: rgb(150, 150, 150);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.main .booksDiv::-webkit-scrollbar-thumb:hover {
+  background: rgba(209, 209, 209, 0.634);
+}
+.main .booksDiv .card-book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.2rem;
+  padding: 1rem;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+.main .booksDiv .card-book .infoBook {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.main .booksDiv .card-book .infoBook h3 {
+  max-width: 75%;
+  margin: 0;
+}
+.main .booksDiv .card-book:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  color: white;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.497);
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.495);
+          box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.495);
+  cursor: pointer;
+}
+.main .booksDiv .card-book img {
+  border-radius: 0.25rem;
+}
+.main .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-area: footer;
+  gap: 5%;
+  padding: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.54);
+}
+.main .footer .libaAdmin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.2rem;
+}
+.main .footer .libaAdmin .admins {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2%;
+  padding: 1rem;
+  width: 100%;
+}
+.main .footer .libaAdmin .admins li {
+  list-style: none;
+}
+
+.infoBooks {
+  display: none;
+  grid-template-areas: "header header" "main main" "footer footer";
+}
+.infoBooks .blink-favorite {
+  -webkit-animation: blink-red 0.8s ease-in-out;
+          animation: blink-red 0.8s ease-in-out;
+}
+.infoBooks .infoBookDiv {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 5% 1fr;
+  grid-template-areas: "header header" "photo info";
+  grid-area: main;
+  gap: 2rem;
+  margin: 1rem;
+  padding: 1.5rem;
+}
+.infoBooks .infoBookDiv .divBack {
+  grid-area: header;
+  width: 100%;
+}
+.infoBooks .infoBookDiv .divBack button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 5%;
+  padding: 0.3rem;
+  font-size: 1.3rem;
+  color: white;
+  background-color: rgba(65, 65, 65, 0.61);
+  border-radius: 0.3rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.infoBooks .infoBookDiv .divBack button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  background-color: rgba(225, 225, 225, 0.61);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.infoBooks .infoBookDiv .photoInfoBook {
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-area: photo;
+  gap: 0.5rem;
+}
+.infoBooks .infoBookDiv .photoInfoBook .info {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.infoBooks .infoBookDiv .photoInfoBook .clickFavor {
+  width: 100%;
+}
+.infoBooks .infoBookDiv .photoInfoBook .clickFavor button {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  color: white;
+  background-color: rgba(0, 100, 0, 0.61);
+  border-radius: 0.3rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.infoBooks .infoBookDiv .photoInfoBook .clickFavor button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  background-color: rgba(0, 184, 0, 0.61);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.infoBooks .descript {
+  display: grid;
+  grid-area: info;
+  grid-template-rows: 5% 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: 100%;
+  border: 2px solid black;
+  border-radius: 0.2rem;
+  backdrop-filter: blur(5px);
+  font-size: 1.5rem;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.infoBooks .descript .headInfo {
+  text-align: center;
+}
+
+.favorBook {
+  display: none;
+}
+.favorBook .favoriteBooks {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  grid-area: main;
+  gap: 1%;
+  padding: 1rem;
+  margin-right: 1rem;
+  height: 100vh;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  background-color: rgba(186, 186, 186, 0.404);
+  backdrop-filter: blur(5px);
+}
+.favorBook .favoriteBooks::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.favorBook .favoriteBooks::-webkit-scrollbar-track {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(0, 0, 0, 0.467);
+  border-radius: 1rem;
+}
+.favorBook .favoriteBooks::-webkit-scrollbar-thumb {
+  background: rgb(150, 150, 150);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.favorBook .favoriteBooks::-webkit-scrollbar-thumb:hover {
+  background: rgba(209, 209, 209, 0.634);
+}
+.favorBook .favoriteBooks .card-book .delBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.favorBook .favoriteBooks .card-book .delBtn .del {
+  padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  border-radius: 0.2rem;
+  border: 1px solid black;
+  background-color: rgba(255, 71, 86, 0.7019607843);
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.favorBook .favoriteBooks .card-book .delBtn .del:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  background-color: rgba(225, 225, 225, 0.61);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.favorBook .favoriteBooks .card-book .infoBook {
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.personalAcc {
+  display: none;
+}
+.personalAcc .personalAccDiv {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  padding: 0.5rem;
+}
+.personalAcc .personalAccDiv .photoDiv {
+  display: grid;
+  grid-template-rows: 1fr 10%;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: 50vh;
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 0.2rem;
+  backdrop-filter: blur(10px);
+}
+.personalAcc .personalAccDiv .photoDiv button {
+  width: 95%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: rgba(255, 71, 86, 0.8117647059);
+  border-radius: 0.2rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.personalAcc .personalAccDiv .photoDiv button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.personalAcc .personalAccDiv .formEdInfo {
+  display: block;
+  min-width: 100%;
+}
+.personalAcc .personalAccDiv .formEdInfo form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1.5rem;
+  max-height: 100vh;
+  min-width: 100%;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  backdrop-filter: blur(10px);
+}
+.personalAcc .personalAccDiv .formEdInfo form .divInpt {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.personalAcc .personalAccDiv .formEdInfo form .divInpt input {
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+.personalAcc .personalAccDiv .formEdInfo form .divInpt label {
+  font-size: 1.3rem;
+}
+.personalAcc .personalAccDiv .formEdInfo form .divEdite {
+  width: 100%;
+}
+.personalAcc .personalAccDiv .formEdInfo form .divEdite button {
+  width: 100%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  border-radius: 0.2rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.personalAcc .personalAccDiv .formEdInfo form .divEdite button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+.personalAcc .personalAccDiv .editeInfo {
+  display: none;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50vh;
+  width: 100vh;
+  font-size: 1.5rem;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  backdrop-filter: blur(10px);
+}
+.personalAcc .personalAccDiv .editeInfo #btnReturnToForm {
+  width: 95%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: rgba(45, 160, 58, 0.8117647059);
+  border-radius: 0.2rem;
+  border: none;
+  -webkit-box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+          box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.personalAcc .personalAccDiv .editeInfo #btnReturnToForm:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+          box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+}
+
+@-webkit-keyframes blink-red {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: #ff4757;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    color: inherit;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes blink-red {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: #ff4757;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    color: inherit;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}

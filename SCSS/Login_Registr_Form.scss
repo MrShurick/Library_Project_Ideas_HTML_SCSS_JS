@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgba(175, 175, 175, 0.353);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    min-height: 100vh;
+
+    .formDiv {
+        padding: 0.5rem;
+        font-size: 1.15rem;
+        border-radius: 0.7rem;
+        border: 0.1rem solid black;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 0.1rem solid black;
+
+            .inputLogin {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                min-width: 100%;
+
+                input {
+                    width: 100%;
+                    padding: 0.2rem;
+                    border: 1px solid black;
+                    border-radius: 0.25rem;
+                        
+                    &:focus {
+                        outline: none;
+                        border: 1px solid black;
+                    }
+                }
+
+                .openClosePass {
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid black;
+                    border-radius: 0.25rem;
+                    background-color: white;
+
+                    input {
+                        width: 90%;
+                        height: 100%;
+                        padding: 0.2rem;
+                        border-radius: 0;
+                        background: none;
+                        border: none
+                    }
+
+                    button {
+                        display: block;
+                        align-items: center;
+                        border: none;
+                        background: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .butt-link {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.5rem;
+                min-width: 100%;
+
+                .subBtn {
+                    width: 100%;
+                    padding: 0.1rem 1rem;
+                    border-radius: 0.5rem;
+                    border: none;
+                    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.659);
+                    cursor: pointer;
+                    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+                    &:active {
+                        transform: scale(0.95);
+                        box-shadow: 0.02rem 0.02rem 0.02rem rgba(0, 0, 0, 0.536);
+                    }
+                }
+
+                a {
+                    color: black;
+                    font-size: 1.05rem;
+                    text-decoration: none;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        color: blue;
+                        text-decoration: underline solid blue;
+                    }
+
+                    &:active {
+                        color: blue;
+                        transform: scale(0.95);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.registr {
+    display: none;
+}
+
+.login {
+    display: flex;
+}
+

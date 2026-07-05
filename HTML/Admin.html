@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Admin.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="count" id="count">
+        <!-- Header -->
+        <header>
+            <nav id="menu">
+                    <a href="#" data-link="books">Books</a>
+                    <a href="#" data-link="visitors">Visitors</a> 
+                    <a href="#" data-link="cards">Cards</a> 
+                    <a href="#" data-link="statistics">Statistics</a> 
+                    <button type="button" id="localClear">Clear_Local</button>
+            </nav>
+        </header>
+
+        <!-- Mains -->
+
+        <!-- Main-books -->
+        <div class="main-books main" id="mainBook">
+
+            <div class="newBook createCount">
+                <h2>CREATE BOOKS:</h2>
+                <button type="button" class="createBtn" id="createBook" data-type="createBook">New Book</button>
+            </div>
+
+            <hr>
+
+            <div class="sort-search">
+                <div class="sortCount">
+                    <label for="sortBook">Sort by:</label>
+                    <select name="sortsBy" id="sortBook" class="sortSelect">
+                        <option value="id" selected>ID</option>
+                        <option value="name">Name</option>
+                    </select>
+                    <button type="button" class="sortBtn" id="sortBtnBook" data-type="createBook">Sort</button>
+                </div>
+
+                <div class="searchCount">
+                    <label for="searchBook">Search:</label>
+                    <input type="text" id="searchBook" class="search">
+                    <button type="button" class="searchBtn" id="searchBtnBook" data-type="createBook">Search</button>
+                </div>
+            </div>
+
+            <div class="border-book" id="borderBook"></div>
+        </div>
+        <!-- Main-books -->
+
+        <!-- Main-visitors -->
+        <div class="main-visitor main" id="mainVisitor">
+
+            <div class="newVisitors createCount">
+                <h2>ALL VISITORS:</h2>
+                <button type="button" class="createBtn" id="createVisitor" data-type="createVisitor">New visitor</button>
+            </div>
+
+            <hr>
+
+            <div class="sort-search">
+                <div class="sortCount">
+                    <label for="sortVisitor">Sort by:</label>
+                    <select name="sortsBy" id="sortVisitor" class="sortSelect">
+                        <option value="id" selected>ID</option>
+                        <option value="name">Name</option>
+                    </select>
+                    <button type="button" class="sortBtn" id="sortBtnVisitor" data-type="createVisitor">Sort</button>
+                </div>
+
+                <div class="searchCount">
+                    <label for="searchVisitor">Search:</label>
+                    <input type="text" id="searchVisitor" class="search">
+                    <button type="button" class="searchBtn" id="searchBtnVisitor" data-type="createVisitor">Search</button>
+                </div>
+            </div>
+
+            <table id="tableVisitor" class="tableInfo">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody class="tableBody"></tbody>
+            </table>
+        </div>
+        <!-- Main-visitors -->
+        
+        <!-- Main-cards -->
+        <div class="main-card main" id="mainCard">
+
+            <div class="newCards createCount">
+                <h2>ALL CARDS:</h2>
+                <button type="button" class="createBtn" id="createCard" data-type="createCard">New card</button>
+            </div>
+
+            <hr>
+
+            <div class="sort-search">
+                <div class="sortCount">
+                    <label for="sortCard">Sort by:</label>
+                    <select name="sortsBy" id="sortCard" class="sortSelect">
+                        <option value="id" selected>ID</option>
+                        <option value="visitor">Visitor</option>
+                        <option value="book">Book</option>
+                    </select>
+                    <button type="button" class="sortBtn" id="sortBtnCard" data-type="createCard">Sort</button>
+                </div>
+
+                <div class="searchCount">
+                    <label for="searchCard">Search:</label>
+                    <input type="text" id="searchCard" class="search">
+                    <button type="button" class="searchBtn" id="searchBtnCard" data-type="createCard">Search</button>
+                </div>
+            </div>
+
+            <table id="tableCard" class="tableInfoCard">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Visitor</th>
+                        <th>Book</th>
+                        <th>Borrow Date</th>
+                        <th>Return Date</th>
+                    </tr>
+                </thead>
+
+                <tbody class="tableBodyCard"></tbody>
+            </table>
+        </div>
+        <!-- Main-cards -->
+
+        <!-- Main-stat -->
+        <div class="mainStatist main" id="mainStat">
+            <div class="newCards createCount">
+                <h2>STATISTICS:</h2>
+            </div>
+            <hr>
+            <div class="charts">
+                <div class="contGraph">
+                    <canvas class="chart" id="chartAll"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- Main-stat -->
+        <!-- Mains -->
+    </div>
+
+<script src="/Json_Chart/node_modules/chart.js/dist/chart.umd.js"></script>
+<script src="/JS/Controller/Controller_Admin.js" type="module"></script>
+</body>
+</html>

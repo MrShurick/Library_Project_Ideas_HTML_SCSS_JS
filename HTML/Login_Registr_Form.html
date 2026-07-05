@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Login_Registr_Form.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main login">
+        <h1>Login Library</h1>
+
+        <div class="formDiv">
+            <form action="" name="loginForm" method="post">
+
+                <div class="inputLogin">
+                    <label for="logName">Login:</label>
+                    <input type="text" name="login" id="logName" required>
+                </div>
+
+                <div class="inputLogin">
+                    <label for="logPass">Password:</label>
+
+                    <div class="openClosePass">
+                        <input type="password" name="password" id="logPass" required>
+                        <button type="button" id="eye">
+                            <img src="/IMG/free-icon-hide-11238328.png" alt="" width="20px">
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="butt-link">
+                    <a href="" id="linkRegistr">Create an account ?</a>
+
+                    <button type="submit" class="subBtn" id="logBtn">Log</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="main registr">
+        <h1>Library Registration</h1>
+
+        <div class="formDiv">
+            <form action="" name="registrForm" method="post">
+
+                <div class="inputLogin inputRegistr">
+                    <label for="registrName">Youre Name:</label>
+                    <input type="text" name="name" id="registrName" required>
+                </div>
+
+                <div class="inputLogin inputRegistr">
+                    <label for="registrPass">Create Password:</label>
+                    <input type="password" name="password" id="registrPass" required>
+                </div>
+
+                <div class="inputLogin inputRegistr">
+                    <label for="registrEmail">Youre Email:</label>
+                    <input type="email" name="email" id="registrEmail" required>
+                </div>
+
+                <div class="inputLogin inputRegistr">
+                    <label for="registrTel">Youre phone number:</label>
+                    <input type="tel" name="phone" id="registrTel" required>
+                </div>
+
+                <div class="butt-link">
+                    <a href="" id="linkLogin">Have an account? Log in!</a>
+                    <button type="submit" name="regBtn" class="subBtn" id="regBtn">Sign up</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+<script src="/JS/Controller/Login_Registr_Controller.js" type="module"></script>
+</body>
+</html>
